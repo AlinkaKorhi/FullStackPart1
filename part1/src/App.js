@@ -15,7 +15,7 @@ const Header = (props) => {
 
 const Content = (props) => {
   let prtsContent = props.parts.map((elem) => (
-    <Part part={elem.name} exercises={elem.exercises}/>
+    <Part key={elem.name} part={elem.name} exercises={elem.exercises}/>
   ));
 
   let divContent = createElement('div', null, prtsContent);
