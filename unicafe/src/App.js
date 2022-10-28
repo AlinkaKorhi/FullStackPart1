@@ -1,6 +1,7 @@
 import {useState} from 'react';
 
 import Button from './Button.js';
+import Result from './Result.js';
 import Statistics from './Statistics.js';
 
 function App() {
@@ -8,7 +9,7 @@ function App() {
   const [good, setGood] = useState(0)
   const [neutral, setNeutral] = useState(0)
   const [bad, setBad] = useState(0)
-  
+
   const [all, setAll] = useState(0)
   const [average, setAverage] = useState(0)
   const [poisitive, setPositive] = useState(0)
