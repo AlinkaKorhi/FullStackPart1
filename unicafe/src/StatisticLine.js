@@ -1,12 +1,18 @@
 function StatisticLine(props) {
   if (props.name == "positive") {
-    return (    
-        <p>{props.name} {props.result} %</p>
+    return (       
+        <tr>
+          <td>{props.name}</td>
+          <td>{props.result} %</td>
+        </tr>
       );  
   }
 
   return (    
-    <p>{props.name} {props.result}</p>
+    <tr>
+      <td>{props.name}</td> 
+      <td>{props.result}</td>
+    </tr>
   );
 }
 

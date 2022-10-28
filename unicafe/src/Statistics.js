@@ -16,7 +16,8 @@ function Statistics(props) {
     }
 
     return (
-        <div>   
+        <table>   
+          <tbody>        
             <StatisticLine name="good" result={good} />
             <StatisticLine name="neutral" result={neutral} />
             <StatisticLine name="bad" result={bad} />
@@ -24,7 +25,8 @@ function Statistics(props) {
             <StatisticLine name="all" result={all} />
             <StatisticLine name="average" result={average} />
             <StatisticLine name="positive" result={poisitive} />
-        </div>
+            </tbody> 
+        </table>
     );
   }
   
