@@ -1,4 +1,4 @@
-import Result from './Result.js';
+import StatisticLine from './StatisticLine.js';
 
 function Statistics(props) {
     let good = props.goodProp;
@@ -17,13 +17,13 @@ function Statistics(props) {
 
     return (
         <div>   
-            <Result name="good" result={good}></Result>
-            <Result name="neutral" result={neutral}></Result>
-            <Result name="bad" result={bad}></Result>
+            <StatisticLine name="good" result={good} />
+            <StatisticLine name="neutral" result={neutral} />
+            <StatisticLine name="bad" result={bad} />
 
-            <Result name="all" result={all}></Result>
-            <Result name="average" result={average}></Result>
-            <Result name="positive" result={poisitive}></Result>
+            <StatisticLine name="all" result={all} />
+            <StatisticLine name="average" result={average} />
+            <StatisticLine name="positive" result={poisitive} />
         </div>
     );
   }

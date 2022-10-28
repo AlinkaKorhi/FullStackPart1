@@ -1,4 +1,4 @@
-function Result(props) {
+function StatisticLine(props) {
   if (props.name == "positive") {
     return (    
         <p>{props.name} {props.result} %</p>
@@ -10,4 +10,4 @@ function Result(props) {
   );
 }
 
-export default Result;
+export default StatisticLine;

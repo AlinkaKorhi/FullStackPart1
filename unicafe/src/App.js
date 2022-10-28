@@ -1,7 +1,7 @@
 import {useState} from 'react';
 
 import Button from './Button.js';
-import Result from './Result.js';
+import Result from './StatisticLine.js';
 import Statistics from './Statistics.js';
 
 function App() {
