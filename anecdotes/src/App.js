@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import Button from './Button.js'
+import MaxOfVotesAnecdot from './MaxOfVotesAnecdot.js'
 
 function App() {
   const anecdotes = [
@@ -14,8 +15,10 @@ function App() {
    
   const [points, setPoints] = useState([0,0,0,0,0,0,0]);
   const [selected, setSelected] = useState(0);
-
+  const [max, setMax] = useState(-1);
+  
   const copy = [ ...points ];
+  let indexOfMax = -1;
 
   const findNewAnecdote = () =>{
     const randomNumber = Math.floor(Math.random() * anecdotes.length);
@@ -26,16 +29,33 @@ function App() {
     const newVoteValue = copy[selected] + 1;
     copy[selected] = newVoteValue;
     setPoints(copy);
+    countMax(copy)
+  }
+
+  const countMax = (copy) =>{
+    let tempIndex = 0;
+    for (let i = 0; i < 5; i++) {
+      if(copy[i]>copy[tempIndex]){
+        tempIndex=i;
+      }
+    }
+
+    indexOfMax = tempIndex;
+    setMax(indexOfMax);
   }
 
   return (
     <div>
+      <h1>Anecdots of the day</h1>
       {anecdotes[selected]}
       <br />
       <p>Has {points[selected]} votes</p>
       <br />
       <Button name="vote" handleClick={() => countVote()}/>
       <Button name="next anecdote" handleClick={() => findNewAnecdote()}/>
+    
+      <h1>Anecdots with most vots</h1>
+      <MaxOfVotesAnecdot anecdot={anecdotes[max]} votesNumber={points[max]}/>
     </div>
   )
 };
