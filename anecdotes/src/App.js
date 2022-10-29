@@ -10,22 +10,34 @@ function App() {
     'Premature optimization is the root of all evil.',
     'Debugging is twice as hard as writing the code in the first place. Therefore, if you write the code as cleverly as possible, you are, by definition, not smart enough to debug it.',
     'Programming without an extremely heavy use of console.log is same as if a doctor would refuse to use x-rays or blood tests when diagnosing patients.'
-  ]
+  ];
    
-  const [selected, setSelected] = useState(0)
+  const [points, setPoints] = useState([0,0,0,0,0,0,0]);
+  const [selected, setSelected] = useState(0);
+
+  const copy = [ ...points ];
 
   const findNewAnecdote = () =>{
-    const randomNumber = Math.floor(Math.random() * anecdotes.length)
+    const randomNumber = Math.floor(Math.random() * anecdotes.length);
     setSelected(randomNumber);
+  }
+
+  const countVote = () =>{
+    const newVoteValue = copy[selected] + 1;
+    copy[selected] = newVoteValue;
+    setPoints(copy);
   }
 
   return (
     <div>
       {anecdotes[selected]}
       <br />
+      <p>Has {points[selected]} votes</p>
+      <br />
+      <Button name="vote" handleClick={() => countVote()}/>
       <Button name="next anecdote" handleClick={() => findNewAnecdote()}/>
     </div>
   )
-}
+};
 
 export default App;
